@@ -2,7 +2,6 @@
 1. 로컬에 이용하는 폴더를 리모트 저장소에 새로 옮길때  
 리모트에 새 리파지토리 하나 생성을 하는데 Add readme 를 하지 않는다.  
 cmd 창에서 cd c:\해당경로 이동  
-
 git init  
 git add .  
 git commit -m "할 이름"  
