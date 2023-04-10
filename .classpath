@@ -5,6 +5,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="text/_01_method.java|doodle/Do1.java|text/text1.java" kind="src" path="src"/>
+	<classpathentry excluding="text/_01_method.java|doodle/Do1.java|text/text1.java|_text/_01_method.java|혼자공부/_01_method.java|혼자공부/text1.java|prac/CountTest.java|_text/text1.java" kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

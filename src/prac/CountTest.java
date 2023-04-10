@@ -21,7 +21,7 @@ public class CountTest {
 		System.out.println("hello");
 	}
 	public static void main(String[] args) { //여기 아래 num, c1, c2, c3, 지역변수. stack 영역, public 지워보고 해봐. num, count 뭐가 막 바뀌는지
-		CountTest cx = CounTest();
+		CountTest cx = CountTest();
 		cx.show();
 		//CounTest.show(); //클래스 메소드. 객체가 없어도 만들어진다
 		//show(); //왜 안되지? 위에 show부분 static을 하면 사용이 돼. data 영역에 입력이 돼서 불러오고 가능. 객체가 만들어지지 않아도 사용 가능하지.

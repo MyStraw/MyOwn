@@ -1,4 +1,4 @@
-package _text;
+package 혼자공부;
 
 public class _01_method {
 

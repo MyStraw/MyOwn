@@ -1,7 +1,7 @@
 package _doodle;
 import java.util.*;
 
-public class Main {
+public class Do1 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
