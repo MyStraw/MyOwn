@@ -9,8 +9,8 @@ public class Do2 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int a  = sc.nextInt();
-		int b = sc.nextInt();
+		double a  = sc.nextInt();
+		double b = sc.nextInt();
 		
 		
 		
