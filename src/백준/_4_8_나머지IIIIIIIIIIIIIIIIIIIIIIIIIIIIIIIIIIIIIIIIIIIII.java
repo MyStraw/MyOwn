@@ -2,7 +2,7 @@ package 백준;
 
 import java.util.Scanner;
 
-public class _4_9_나머지IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII {
+public class _4_8_나머지IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);

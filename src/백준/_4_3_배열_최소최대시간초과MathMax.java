@@ -2,7 +2,7 @@ package 백준;
 
 import java.util.Scanner;
 
-public class _4_4_배열_최소최대시간초과MathMax {
+public class _4_3_배열_최소최대시간초과MathMax {
 
 	public static void main(String[] args) {
 

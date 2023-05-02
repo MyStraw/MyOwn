@@ -2,7 +2,7 @@ package 백준;
 
 import java.util.Scanner;
 
-public class _4_5_배열_최댓값 {
+public class _4_4_배열_최댓값 {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);

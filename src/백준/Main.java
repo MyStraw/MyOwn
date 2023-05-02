@@ -2,57 +2,43 @@ package 백준;
 
 import java.util.Scanner;
 
-public class Main {
-	public static void main(String[] args) {
+public class Main {									// 문제예시. [1][2][3][4][5] 순서대로 바구니 5(N)개에 각 번호가 든 공을 넣어놨다.
+	public static void main(String[] args) {		// 두번째 상자(i)부터 다섯번째 상자(j)까지 번호가 적힌 공의 순서를 역으로 바꾸는 행동을 한다.
+													// [1][5][4][3][2]
+		Scanner sc = new Scanner(System.in);		// 이런 행동을 연속해서 M번 할거다. 이다음 첫번째 상자부터 세번째 상자까지 또 같은 행동을 한다면
+													// [4][5][1][3][2] 이렇게 나오겠당. 이걸 M번한 뒤 상자의 배열은 어떤모양인가? 하는 문제.
+		int N = sc.nextInt();						//------------------------------------------------------------------------------------------
+		int n[] = new int[N]; 					    // 1) 바구니 N개를 배열로 만들기. 바구니 1개당 배열 한칸차지한다고 생각. ex)N=5
+		int temp[] = new int[N]; 			    	// 위와 똑같은 배열의 임의(temp) 바구니 집단 하나 더 만들기.(바꿔치기 할때 이용)
 
-		Scanner sc = new Scanner(System.in);
-		int A[] = new int[10];
-		int remainder[] = new int[10];
-//		int remainder2[] = new int[10];
-//		int count[] = new int[10];
-		int counter[] = new int [42];
+		for (int i = 0; i < N; i++) { 			    // 2) 각 바구니(배열) 순서대로 1번부터 N번까지 번호가 적힌 공을 넣는다 생각. n[0] =1번공, n[1] =2번공 ......
+			n[i] = i + 1;							// 배열의 첫번째 인덱스는 0부터 시작~ 이거 계산할때마다 헷갈려 미치겠
+			temp[i] = i + 1;
+		} 
 
-		int sum = 0;
+		int M = sc.nextInt(); 				    	// 3) 공의 순서를 몇번이나 바꿀지 정해~~ M번 바꾸기를 시도할끄야~~!
 
-		for (int i = 0; i < 10; i++) {
-			A[i] = sc.nextInt();
-			remainder[i] = A[i] % 42;			
-			
-		}
-		
-		for (int i = 0 ; i<10 ; i++) { //배열 안에 배열을 넣는게 핵심이었다. 이건 몰랐을거다 그냥 머리로는.
-			counter[remainder[i]] += 1;			
-		}
-		
-		for (int i = 0; i < 42; i++) {
-			if (counter[i] != 0) {
-				sum += 1;
+		for (int I = 0; I < M; I++) {		     	// 4) i번째 부터 j번째 상자의 순서바꾸기를 M번 할그야. 그럼 i~j도 M번 입력해야징
+			int i = sc.nextInt();
+			int j = sc.nextInt();
+
+			int cross[] = new int[j - i + 1];   	// 5) 매번 모~~든 바구니를 다 바꾸는게 아닌, 
+											    	//    i번째에서~j번째 바구니의 번호만 역으로 바꾸는 것이기 때문에, i부터 j까지 개수만 가진 바구니(cross) 배열을 하나 만든다.
+											    	//    1을 더한건 ex)2~5번까지의 개수는 2,3,4,5 => 총 4개. 5-2+1=4
+			for (int J = 0; J < N; J++) {       	// 6) 임의(temp) 바구니를 적극 이용할것이기 때문에 일단 여긴 넘어가고 7번 먼저 보고 8번때 다시보쟈. 이거의 순서가 결국 답을 내는데 핵심포인트였당.
+				n[J] = temp[J];			        	// 8) n[]<-temp[] | temp[]의 내용을 고스란히 n[]에게 넘겨준다. 그럼 n[]도 마찬가지로 [1][5][4][3][2] 이제 다시 아래로 내려가서 남은반복 마저하기.
 			}
+
+			for (int K = 0; K <= j - i; K++) {      // 7) 딱 i부터 j의 개수만큼 순환을 돌게 하였다. 2(i)부터 5(j)까지라면 2,3,4,5 => 4개. 총 4번 순환하도록.
+				cross[j - i - K] = n[i + K - 1];    // cross[3] <= n[1] | cross[2] <= n[2] | cross[1] <= n[3] | cross[0] <= n[4]
+				temp[j - K - 1] = cross[j - i - K]; // temp[4] <= cross[3] | temp[3] <= cross[2] | temp[2] <= cross[1] | temp[1] <= cross[0]
+			} 										// n[] 과 temp[]는 서로 [1][2][3][4][5]로 똑같이 시작했지만, 
+													// 여기서 n[]은 여전히 [1][2][3][4][5] 이지만 temp[]는 [1][5][4][3][2] 로 바꼈다. 이제 8번인 위로 올라가서
+		}
+		for (int i = 0; i < N; i++) { 				// 9) 마지막 횟수까지 다 하고난 결과는 temp[]에 남으니 temp[N]를 출력.
+			System.out.print(temp[i] + " ");
 		}
 
-//		for (int i = 0; i < 10; i++) {
-//			for (int j = 0; j < 10; j++) {
-//				if (i != j && remainder[i] == remainder[j]) {
-//					remainder2[j] = remainder[j];
-//				}
-//			}
-//		}
-//
-//		for (int j = 1; j < 42; j++) {
-//			for (int i = 0; i < 10; i++) {
-//				if (j == remainder2[i]) {
-//					count[i] = j;
-//				}
-//			}
-//		}
-//
-//		for (int i = 0; i < 10; i++) {
-//			if (count[i] != 0) {
-//				sum += 1;
-//			}
-//		}
-
-		System.out.println(sum);
 	}
 
 }

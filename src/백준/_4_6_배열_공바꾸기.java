@@ -2,7 +2,7 @@ package 백준;
 
 import java.util.Scanner;
 
-public class _4_7_배열_공바꾸기 {
+public class _4_6_배열_공바꾸기 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
