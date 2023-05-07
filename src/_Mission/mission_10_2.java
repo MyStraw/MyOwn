@@ -11,7 +11,7 @@ package _Mission;
 
 import java.util.Scanner;
 
-public class mission8 {
+public class mission_10_2 {
 
 	public static void main(String[] args) {
 
