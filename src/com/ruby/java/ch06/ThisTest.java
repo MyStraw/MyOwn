@@ -13,7 +13,8 @@ public class ThisTest {
 
 	public void second(int i) {
 		int j = 5;
-		this.i = i + j;
+		this.i = i + j;		
+		System.out.println(this.i);
 	}
 
 	public static void main(String[] args) {

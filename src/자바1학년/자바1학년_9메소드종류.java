@@ -15,6 +15,7 @@ public class 자바1학년_9메소드종류 {
 		int b = rand.nextInt(100);
 		String question = a + "x" + b + " = ?";
 		System.out.println(question);
+		System.out.println(a*b);
 	}
 
 }
